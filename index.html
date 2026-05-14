@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidya Parampara — Yuva Namasankeerthanam</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background-color: #fdf6ec;
+      font-family: Georgia, 'Times New Roman', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .card {
+      background: #fff9f0;
+      border: 2px solid #8b1a1a;
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(139, 26, 26, 0.12);
+    }
+
+    .logo {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .org-name {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8b1a1a;
+      font-family: Georgia, serif;
+      margin-bottom: 6px;
+    }
+
+    .event-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #5a0f0f;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .sanskrit {
+      font-size: 15px;
+      color: #8b1a1a;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #d4a96a;
+      margin: 20px auto;
+      width: 60%;
+    }
+
+    .event-meta {
+      font-size: 14px;
+      color: #6b3a1f;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .event-meta strong {
+      color: #5a0f0f;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(139, 26, 26, 0.2);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-youtube {
+      background: #8b1a1a;
+      color: #fff;
+      border: 2px solid #8b1a1a;
+    }
+
+    .btn-youtube:hover {
+      background: #6e1010;
+    }
+
+    .btn-brochure {
+      background: transparent;
+      color: #8b1a1a;
+      border: 2px solid #8b1a1a;
+    }
+
+    .btn-brochure:hover {
+      background: #fde8cc;
+    }
+
+    .btn-lyrics {
+      background: transparent;
+      color: #8b1a1a;
+      border: 2px solid #d4a96a;
+    }
+
+    .btn-lyrics:hover {
+      background: #fdf0dc;
+    }
+
+    .btn-insta {
+      background: transparent;
+      color: #8b4513;
+      border: 2px solid #d4a96a;
+    }
+
+    .btn-insta:hover {
+      background: #fdf0dc;
+    }
+
+    .btn-donate {
+      background: #d4a96a;
+      color: #5a0f0f;
+      border: 2px solid #d4a96a;
+    }
+
+    .btn-donate:hover {
+      background: #c4924e;
+      border-color: #c4924e;
+    }
+
+    .btn-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: min(210px, 100%);
+    }
+
+    .btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      flex-shrink: 0;
+    }
+
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .qr-section {
+      margin-top: 28px;
+    }
+
+    .qr-label {
+      font-size: 12px;
+      color: #b07040;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .qr-section img {
+      width: 150px;
+      height: 150px;
+      border-radius: 8px;
+      border: 1px solid #d4a96a;
+    }
+
+    .qr-url {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #8b1a1a;
+      letter-spacing: 0.5px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #b07040;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 12px;
+        align-items: flex-start;
+      }
+
+      .card {
+        padding: 32px 20px;
+        border-radius: 12px;
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      .event-title {
+        font-size: 22px;
+      }
+
+      .org-name {
+        letter-spacing: 2px;
+      }
+
+      .btn {
+        font-size: 15px;
+        padding: 15px 16px;
+      }
+
+      .btn-inner {
+        width: min(185px, 100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img
+      class="logo"
+      src="WhatsApp Image 2026-05-14 at 23.47.59.jpeg"
+      alt="Vidya Parampara Logo"
+    />
+
+    <p class="org-name">Vidya Parampara</p>
+    <h1 class="event-title">Yuva Nāmasankeerthanam</h1>
+    <p class="sanskrit">श्री राम जयम्</p>
+
+    <hr class="divider" />
+
+    <div class="event-meta">
+      <strong>17th May 2026 &nbsp;|&nbsp; Sunday &nbsp;|&nbsp; 6 – 8:30 PM</strong><br />
+      Kalasagaram Meenakshi Sunderam Hall<br />
+      Shrinath Bhavan, Krishnapuri Colony<br />
+      West Marredpally
+    </div>
+
+    <div class="buttons">
+      <!-- YouTube -->
+      <a class="btn btn-youtube" href="https://www.youtube.com/@vidyaparampara" target="_blank" rel="noopener">
+        <span class="btn-inner"><span class="btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+        </svg></span>Watch on YouTube</span>
+      </a>
+
+      <!-- Song List & Lyrics PDF -->
+      <a class="btn btn-lyrics" href="1VP Yuva Nama Sankeertanam .pdf" target="_blank" rel="noopener">
+        <span class="btn-inner"><span class="btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13"/>
+          <circle cx="6" cy="18" r="3"/>
+          <circle cx="18" cy="16" r="3"/>
+        </svg></span>Song List &amp; Lyrics</span>
+      </a>
+
+      <!-- Event Brochure PDF -->
+      <a class="btn btn-brochure" href="Yuva Namasankeerthanam.pdf" target="_blank" rel="noopener">
+        <span class="btn-inner"><span class="btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg></span>Event Brochure</span>
+      </a>
+
+      <!-- Instagram -->
+      <a class="btn btn-insta" href="https://www.instagram.com/vidya_parampara" target="_blank" rel="noopener">
+        <span class="btn-inner"><span class="btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.085-1.855-.601-3.697-1.942-5.038C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+        </svg></span>Follow on Instagram</span>
+      </a>
+
+      <!-- Donate via UPI -->
+      <a class="btn btn-donate" href="upi://pay?pa=vidyaparampara@indianbank&pn=Vidya+Parampara">
+        <span class="btn-inner"><span class="btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg></span>Donate via UPI</span>
+      </a>
+    </div>
+
+    <hr class="divider" style="margin-top: 28px;" />
+
+    <div class="qr-section">
+      <p class="qr-label">Scan to open on your phone</p>
+      <img src="qr.png" alt="QR code for vp.samarthr.com" />
+      <p class="qr-url">vp.samarthr.com</p>
+    </div>
+
+    <p class="footer">All are welcome &nbsp;·&nbsp; Contact: 9885956728</p>
+  </div>
+</body>
+</html>
