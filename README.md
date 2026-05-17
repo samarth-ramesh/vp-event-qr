@@ -2,31 +2,37 @@
 
 Static event page for Vidya Parampara, served by nginx inside a container.
 
+The image is built and published to GHCR by `.github/workflows/docker-publish.yml`
+on every push to `main`:
+
+```
+ghcr.io/samarth-ramesh/vp-event-qr:latest
+```
+
 ## Serving with Podman
 
 The container listens on port 80 internally. Map it to host port **4003**.
 
-### Build
-
-```sh
-podman build -t vp-event-qr .
-```
-
 ### Run
 
 ```sh
-podman run -d --name vp-event-qr -p 4003:80 --restart=unless-stopped vp-event-qr
+podman pull ghcr.io/samarth-ramesh/vp-event-qr:latest
+podman run -d --name vp-event-qr -p 4003:80 --restart=unless-stopped \
+    ghcr.io/samarth-ramesh/vp-event-qr:latest
 ```
 
 The page is now reachable at <http://localhost:4003>.
 
 ### Update
 
+Pull the latest image and recreate the container:
+
 ```sh
+podman pull ghcr.io/samarth-ramesh/vp-event-qr:latest
 podman stop vp-event-qr
 podman rm vp-event-qr
-podman build -t vp-event-qr .
-podman run -d --name vp-event-qr -p 4003:80 --restart=unless-stopped vp-event-qr
+podman run -d --name vp-event-qr -p 4003:80 --restart=unless-stopped \
+    ghcr.io/samarth-ramesh/vp-event-qr:latest
 ```
 
 ### Run as a systemd service (rootless)
